@@ -8,7 +8,7 @@
 import UIKit
 
 class YNNodeList: NSObject {
-    var head: YNNode
+    var head: YNNode?
     
     init(head: YNNode) {
         self.head = head

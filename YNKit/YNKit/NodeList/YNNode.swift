@@ -9,10 +9,9 @@ import UIKit
 
 class YNNode: NSObject {
     var value: Int = 0
-    var next: YNNode
+    var next: YNNode?
     
-    init(value: Int, next: YNNode) {
+    init(value: Int) {
         self.value = value
-        self.next = next
     }
 }
