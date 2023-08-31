@@ -18,6 +18,10 @@
 		193F7996278EA8D900CECC16 /* YNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193F7994278EA8D900CECC16 /* YNViewController.swift */; };
 		193F7997278EA8D900CECC16 /* YNViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193F7995278EA8D900CECC16 /* YNViewController.xib */; };
 		43BF548C1B900B1B1D087409 /* Pods_YNKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD67BA6C81698C9947BD3111 /* Pods_YNKit.framework */; };
+		7CA5CD742AA0760B00AF85F3 /* YNNodeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5CD732AA0760B00AF85F3 /* YNNodeList.swift */; };
+		7CA5CD762AA0762200AF85F3 /* YNNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5CD752AA0762200AF85F3 /* YNNode.swift */; };
+		7CA5CD792AA08FBE00AF85F3 /* YNNodeListTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5CD772AA08FBE00AF85F3 /* YNNodeListTestVC.swift */; };
+		7CA5CD7A2AA08FBE00AF85F3 /* YNNodeListTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CA5CD782AA08FBE00AF85F3 /* YNNodeListTestVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		193F798F278EA86400CECC16 /* YNTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YNTabBarController.swift; sourceTree = "<group>"; };
 		193F7994278EA8D900CECC16 /* YNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YNViewController.swift; sourceTree = "<group>"; };
 		193F7995278EA8D900CECC16 /* YNViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YNViewController.xib; sourceTree = "<group>"; };
+		7CA5CD732AA0760B00AF85F3 /* YNNodeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YNNodeList.swift; sourceTree = "<group>"; };
+		7CA5CD752AA0762200AF85F3 /* YNNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YNNode.swift; sourceTree = "<group>"; };
+		7CA5CD772AA08FBE00AF85F3 /* YNNodeListTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YNNodeListTestVC.swift; sourceTree = "<group>"; };
+		7CA5CD782AA08FBE00AF85F3 /* YNNodeListTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YNNodeListTestVC.xib; sourceTree = "<group>"; };
 		B4F51C8C4909DAAE915BC0EE /* Pods-YNKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YNKit.debug.xcconfig"; path = "Target Support Files/Pods-YNKit/Pods-YNKit.debug.xcconfig"; sourceTree = "<group>"; };
 		CD67BA6C81698C9947BD3111 /* Pods_YNKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YNKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB80828A0A5864A499C1C17 /* Pods-YNKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YNKit.release.xcconfig"; path = "Target Support Files/Pods-YNKit/Pods-YNKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +118,7 @@
 		193F794A278E76A800CECC16 /* YNKit */ = {
 			isa = PBXGroup;
 			children = (
+				7CA5CD722AA075CE00AF85F3 /* NodeList */,
 				193F794B278E76A800CECC16 /* AppDelegate.swift */,
 				193F794F278E76A800CECC16 /* ViewController.swift */,
 				193F7951278E76A800CECC16 /* Main.storyboard */,
@@ -156,6 +165,17 @@
 				DCB80828A0A5864A499C1C17 /* Pods-YNKit.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7CA5CD722AA075CE00AF85F3 /* NodeList */ = {
+			isa = PBXGroup;
+			children = (
+				7CA5CD732AA0760B00AF85F3 /* YNNodeList.swift */,
+				7CA5CD752AA0762200AF85F3 /* YNNode.swift */,
+				7CA5CD772AA08FBE00AF85F3 /* YNNodeListTestVC.swift */,
+				7CA5CD782AA08FBE00AF85F3 /* YNNodeListTestVC.xib */,
+			);
+			path = NodeList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +286,7 @@
 				193F7958278E76A900CECC16 /* LaunchScreen.storyboard in Resources */,
 				193F7955278E76A900CECC16 /* Assets.xcassets in Resources */,
 				193F7953278E76A800CECC16 /* Main.storyboard in Resources */,
+				7CA5CD7A2AA08FBE00AF85F3 /* YNNodeListTestVC.xib in Resources */,
 				193F7997278EA8D900CECC16 /* YNViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,8 +354,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CA5CD762AA0762200AF85F3 /* YNNode.swift in Sources */,
 				193F7996278EA8D900CECC16 /* YNViewController.swift in Sources */,
 				193F7950278E76A800CECC16 /* ViewController.swift in Sources */,
+				7CA5CD742AA0760B00AF85F3 /* YNNodeList.swift in Sources */,
+				7CA5CD792AA08FBE00AF85F3 /* YNNodeListTestVC.swift in Sources */,
 				193F794C278E76A800CECC16 /* AppDelegate.swift in Sources */,
 				193F7990278EA86400CECC16 /* YNTabBarController.swift in Sources */,
 			);
