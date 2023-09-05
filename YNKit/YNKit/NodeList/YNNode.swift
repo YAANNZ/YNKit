@@ -8,10 +8,10 @@
 import UIKit
 
 class YNNode: NSObject {
-    var value: Int = 0
+    var value: String?
     var next: YNNode?
     
-    init(value: Int) {
+    init(value: String) {
         self.value = value
     }
 }

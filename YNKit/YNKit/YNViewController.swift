@@ -14,9 +14,20 @@ class YNViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .gray
+        
+        let btn = UIButton.init(frame: CGRectMake(100, 200, 100, 50))
+        btn.setTitle("NodeList", for: UIControl.State.normal)
+        btn.addTarget(self, action: #selector(self.openNodeListVC), for: UIControl.Event.touchUpInside)
+        self.view.addSubview(btn)
     }
 
 
+    @objc func openNodeListVC() {
+//        let VC = YNNodeListTestVC.init(nibName: "YNNodeListTestVC", bundle: Bundle.main);
+        let VC = YNNodeListTestVC()
+        self.navigationController?.pushViewController(VC, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
