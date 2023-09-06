@@ -7,7 +7,7 @@
 
 import UIKit
 
-class YNNodeList: NSObject {
+class YNLinkedList: NSObject {
     var head: YNNode!
     
     init(head: YNNode) {

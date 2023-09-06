@@ -1,16 +1,16 @@
 //
-//  YNNodeListTestVC.swift
+//  YNLinkedListTestVC.swift
 //  YNKit
 //
-//  Created by yanan.zhu on 2023/8/31.
+//  Created by yanan.zhu on 2023/9/6.
 //
 
 import UIKit
 
-class YNNodeListTestVC: UIViewController {
+class YNLinkedListTestVC: UIViewController {
 
     @IBOutlet weak var contentLabel: UILabel!
-    var nodeList: YNNodeList!
+    var nodeList: YNLinkedList!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +20,12 @@ class YNNodeListTestVC: UIViewController {
         let headNode = YNNode(value: "1")
         headNode.next = midNode;
         midNode.next = endNode;
-        nodeList = YNNodeList.init(head: headNode)
+        nodeList = YNLinkedList.init(head: headNode)
         
         showNodeValues(nodeList)
     }
     
-    func showNodeValues(_ nodeList: YNNodeList) {
+    func showNodeValues(_ nodeList: YNLinkedList) {
         let textStr = (nodeList.head.value ?? "") + "-" + (nodeList.head.next?.value ?? "")
         contentLabel.text = textStr  + "-" + (nodeList.head.next?.next?.value ?? "")
     }
@@ -52,6 +52,13 @@ class YNNodeListTestVC: UIViewController {
     
 }
 
-func invertHeadNode(_ headNode: YNNode) {
+func invertHeadNode(_ headNode: YNNode?) -> YNNode? {
+    if headNode == nil || headNode?.next == nil {
+        return headNode
+    }
     
+    let newHead = invertHeadNode(headNode?.next)
+    headNode?.next?.next = headNode
+    headNode?.next = nil
+    return newHead
 }

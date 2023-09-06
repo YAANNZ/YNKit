@@ -24,7 +24,7 @@ class YNViewController: UIViewController {
 
     @objc func openNodeListVC() {
 //        let VC = YNNodeListTestVC.init(nibName: "YNNodeListTestVC", bundle: Bundle.main);
-        let VC = YNNodeListTestVC()
+        let VC = YNLinkedListTestVC()
         self.navigationController?.pushViewController(VC, animated: true)
     }
     
