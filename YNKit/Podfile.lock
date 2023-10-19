@@ -1,16 +1,22 @@
 PODS:
   - JLRoutes (2.1)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - JLRoutes (~> 2.1)
+  - YYKit (= 1.0.9)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - JLRoutes
+    - YYKit
 
 SPEC CHECKSUMS:
   JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 172d828ee8a5f4558b52b325e07b26743c5524bd
+PODFILE CHECKSUM: 55d9ce1689e918fa30a507dae33f3cd940610fbc
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.10.2
