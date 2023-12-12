@@ -5,6 +5,11 @@
 //  Created by yanan.zhu on 2023/9/6.
 //
 
+/*
+ 1. 反转链表
+ 2. 判断两个链表有交集
+ */
+
 import UIKit
 
 class YNLinkedListTestVC: UIViewController {
