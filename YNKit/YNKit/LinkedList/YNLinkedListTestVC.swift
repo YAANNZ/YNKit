@@ -37,27 +37,33 @@ class YNLinkedListTestVC: UIViewController {
     
     @IBAction func invertEvent(_ sender: Any) {
         // 迭代反转链表
-        var newHeadNode: YNNode?
-        var headNode = nodeList.head
-        
-        while headNode != nil {
-            let tempNode = headNode
-            headNode = headNode?.next
-            tempNode?.next = newHeadNode
-            newHeadNode = tempNode
-        }
-        
-        nodeList.head = newHeadNode
+        nodeList.head = invertHeadNodeIterator(nodeList.head)
         
         // 递归反转链表
-        
+//        nodeList.head = invertHeadNode(nodeList.head)
         
         showNodeValues(nodeList)
     }
     
 }
 
+func invertHeadNodeIterator(_ headNode: YNNode?) -> YNNode? {
+    
+    var newHeadNode: YNNode?
+    var headNode = headNode
+
+    while headNode != nil {
+        let tempNode = headNode
+        headNode = headNode?.next
+        tempNode?.next = newHeadNode
+        newHeadNode = tempNode
+    }
+
+    return newHeadNode
+}
+
 func invertHeadNode(_ headNode: YNNode?) -> YNNode? {
+    
     if headNode == nil || headNode?.next == nil {
         return headNode
     }
@@ -65,5 +71,6 @@ func invertHeadNode(_ headNode: YNNode?) -> YNNode? {
     let newHead = invertHeadNode(headNode?.next)
     headNode?.next?.next = headNode
     headNode?.next = nil
+    
     return newHead
 }
