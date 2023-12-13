@@ -20,20 +20,13 @@ class YNLinkedListTestVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let endNode = YNNode(value: "3")
-        let midNode = YNNode(value: "2")
-        let headNode = YNNode(value: "1")
-        headNode.next = midNode;
-        midNode.next = endNode;
-        nodeList = YNLinkedList.init(head: headNode)
+        
+        nodeList = createLinkedList(["1", "2", "3", "4", "5"])
         
         showNodeValues(nodeList)
     }
     
-    func showNodeValues(_ nodeList: YNLinkedList) {
-        let textStr = (nodeList.head.value ?? "") + "-" + (nodeList.head.next?.value ?? "")
-        contentLabel.text = textStr  + "-" + (nodeList.head.next?.next?.value ?? "")
-    }
+    
     
     @IBAction func invertEvent(_ sender: Any) {
         // 迭代反转链表
@@ -45,8 +38,34 @@ class YNLinkedListTestVC: UIViewController {
         showNodeValues(nodeList)
     }
     
+    func showNodeValues(_ nodeList: YNLinkedList) {
+        var headNode = nodeList.head
+        
+        let textAry: NSMutableArray! = NSMutableArray()
+        while headNode != nil {
+            textAry.add(headNode?.value as Any)
+            headNode = headNode?.next
+        }
+        
+        contentLabel.text = textAry.componentsJoined(by: "-")
+    }
+    
 }
 
+//MARK: - Private Tool
+func createLinkedList(_ arr: Array<String>) -> YNLinkedList? {
+    
+    var headNode: YNNode!
+    for i in (0..<arr.count).reversed() {
+        let node = YNNode(value: arr[i])
+        node.next = headNode
+        headNode = node
+    }
+    
+    return YNLinkedList(head: headNode)
+}
+
+//MARK: - 反转链表
 func invertHeadNodeIterator(_ headNode: YNNode?) -> YNNode? {
     
     var newHeadNode: YNNode?
@@ -61,6 +80,7 @@ func invertHeadNodeIterator(_ headNode: YNNode?) -> YNNode? {
 
     return newHeadNode
 }
+
 
 func invertHeadNode(_ headNode: YNNode?) -> YNNode? {
     
