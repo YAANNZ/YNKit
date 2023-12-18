@@ -8,5 +8,7 @@ target 'YNKit' do
 
 pod 'JLRoutes', '~> 2.1'
 pod 'YYKit', '1.0.9'
+pod 'AFNetworking', '4.0.1'
+pod 'Alamofire', '5.8.0'
 
 end
