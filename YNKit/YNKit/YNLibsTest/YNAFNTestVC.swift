@@ -13,6 +13,7 @@ class YNAFNTestVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor.white
         
         var requestSerializer = AFJSONRequestSerializer()
 //        var requestSerializer = AFHTTPRequestSerializer()
@@ -22,10 +23,15 @@ class YNAFNTestVC: UIViewController {
         
         do {
             var urlRequest = try requestSerializer.request(withMethod: "POST", urlString: "", parameters: {})
-            
+
+
         } catch {
-            
+
         }
+        
+        
+        
+
         
         
         
@@ -59,9 +65,23 @@ class YNAFNTestVC: UIViewController {
 //
 //        [requestTask.dataTask resume];
 //        return requestTask;
-//
-//    }
+
+        
+        
+    }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let manager = AFHTTPSessionManager.init()
+        
+        let task = manager.get("http://localhost:8080/crm2/customer/list", parameters: [], headers: [:], progress: nil) { tast, anyObj in
+            print(anyObj)
+        }
+        
+        task?.resume()
+    }
 
     
 
