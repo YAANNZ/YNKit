@@ -1860,6 +1860,7 @@ static void removeNamedClass(Class cls, const char *name)
 **********************************************************************/
 static NXMapTable *future_named_class_map = nil;
 OBJC_EXTERN void *const _Nonnull objc_debug_future_named_class_map = &future_named_class_map;
+// 全局哈希表
 static NXMapTable *futureNamedClasses()
 {
     lockdebug::assert_locked(&runtimeLock);
@@ -1973,6 +1974,12 @@ static bool noClassesRemapped(void)
 * OR newcls is nil, replacing ignored weak-linked class oldcls.
 * Locking: runtimeLock must be write-locked by the caller
 **********************************************************************/
+/*
+ 将newCls标记为 remapped class，以cls为关键字添加到全局记录的remappedClasses()哈希表中；
+ 将cls标记为 named class，以cls->mangledName()类名为关键字添加到全局记录的gdb_objc_realized_classes哈希表中，表示 runtime 开始可以通过类名查找类（注意元类不需要添加）；
+ 将cls及其元类标记为 allocated class，并将两者均添加到全局记录的allocatedClasses哈希表中（无需关键字），表示已为类分配固定内存空间；
+
+ */
 static void addRemappedClass(Class oldcls, Class newcls)
 {
     lockdebug::assert_locked(&runtimeLock);
@@ -3382,6 +3389,7 @@ bool mustReadClasses(header_info *hi, bool hasDyldRoots)
 *
 * Locking: runtimeLock acquired by map_images or objc_readClassPair
 **********************************************************************/
+// 将cls重映射（remapping）到新的类newCls
 Class readClass(Class cls, bool headerIsBundle, bool headerIsPreoptimized)
 {
     const char *mangledName = cls->nonlazyMangledName();

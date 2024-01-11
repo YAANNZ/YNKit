@@ -2502,15 +2502,18 @@ struct objc_class : objc_object {
         // fixme good or bad for memory use?
     }
 
+    // 查询是否正在初始化（initializing）
     bool isInitializing() {
         return getMeta()->bits.flags() & RW_INITIALIZING;
     }
 
+    // 设置正在初始化
     void setInitializing() {
         ASSERT(!isMetaClass());
         ISA()->setInfo(RW_INITIALIZING);
     }
 
+    // 是否完成初始化
     bool isInitialized() {
         return getMeta()->bits.flags() & RW_INITIALIZED;
     }
@@ -2522,6 +2525,7 @@ struct objc_class : objc_object {
         return true;  // any class registered for +load is definitely loadable
     }
 
+    // 获取load方法的IMP
     IMP getLoadMethod();
 
     // Locking: To prevent concurrent realization, hold runtimeLock.
