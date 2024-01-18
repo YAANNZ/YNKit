@@ -7,6 +7,7 @@
 
 #import "YNAFNOCTestVC.h"
 #import <AFNetworking/AFNetworking.h>
+#import "EventSource.h"
 
 @interface YNAFNOCTestVC ()
 
@@ -49,14 +50,40 @@
     
 }
 
-/*
-#pragma mark - Navigation
+- (void)eventSource {
+    NSString *url = @"http://www.";
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    EventSource *eventSource = [EventSource eventSourceWithURL:[NSURL URLWithString:url]];
+//    self.eventSource = eventSource;
+    [eventSource onMessage:^(Event *e) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"%@", e);
+            
+        });
+    }];
+    
+    [eventSource onSubject:^(Event *event) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+//                    NSLog(@"%@", event);
+            
+        });
+    }];
+    
+    [eventSource onEnd:^(Event *event) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+//                    NSLog(@"%@", event); // 结束处理
+            
+        });
+    }];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [eventSource onError:^(Event *event) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+//                    NSLog(@"%@", event);
+//                    NSLog(@"error:%@", event.error);
+            
+        });
+    }];
 }
-*/
 
 @end

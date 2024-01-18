@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043F5A652B59275100BC150D /* EventSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 043F5A632B59275100BC150D /* EventSource.m */; };
 		193F794C278E76A800CECC16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193F794B278E76A800CECC16 /* AppDelegate.swift */; };
 		193F7950278E76A800CECC16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193F794F278E76A800CECC16 /* ViewController.swift */; };
 		193F7953278E76A800CECC16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193F7951278E76A800CECC16 /* Main.storyboard */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043F5A632B59275100BC150D /* EventSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSource.m; sourceTree = "<group>"; };
+		043F5A642B59275100BC150D /* EventSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSource.h; sourceTree = "<group>"; };
 		193F7948278E76A800CECC16 /* YNKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YNKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		193F794B278E76A800CECC16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		193F794F278E76A800CECC16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +106,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043F5A612B59275100BC150D /* YNNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				043F5A622B59275100BC150D /* YYEventSource */,
+			);
+			path = YNNetwork;
+			sourceTree = "<group>";
+		};
+		043F5A622B59275100BC150D /* YYEventSource */ = {
+			isa = PBXGroup;
+			children = (
+				043F5A642B59275100BC150D /* EventSource.h */,
+				043F5A632B59275100BC150D /* EventSource.m */,
+			);
+			path = YYEventSource;
+			sourceTree = "<group>";
+		};
 		193F793F278E76A800CECC16 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +148,7 @@
 		193F794A278E76A800CECC16 /* YNKit */ = {
 			isa = PBXGroup;
 			children = (
+				043F5A612B59275100BC150D /* YNNetwork */,
 				7C74863D2B2FD84A00A319A3 /* YNAlgorithms */,
 				7C7486462B2FD84A00A319A3 /* YNLibsTest */,
 				7C7486362B2FD7C600A319A3 /* YNBaseVC */,
@@ -414,6 +435,7 @@
 				7C74864B2B2FD84A00A319A3 /* YNLinkedListTestVC.swift in Sources */,
 				7C74864C2B2FD84A00A319A3 /* YNLinkedList.swift in Sources */,
 				7C74863A2B2FD7C600A319A3 /* YNViewController.swift in Sources */,
+				043F5A652B59275100BC150D /* EventSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
